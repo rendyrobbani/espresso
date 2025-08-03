@@ -1,17 +1,20 @@
-package com.rendyrobbani.espresso.schema.fact.column;
+package com.rendyrobbani.espresso.schema.fact.column.common;
 
 import com.rendyrobbani.espresso.schema.base.Column;
-import com.rendyrobbani.espresso.schema.data.column.CharColumn;
+import com.rendyrobbani.espresso.schema.fact.column.ColumnFactory;
+import com.rendyrobbani.espresso.schema.impl.ColumnTypeImpl;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class CharColumnFactory {
+
+	private static final ColumnTypeImpl DEFAULT_TYPE = ColumnTypeImpl.CHAR;
 
 	private static final Integer DEFAULT_SIZE = 255;
 
-	private CharColumnFactory() {
-	}
-
 	public static Column create(String name, Integer size, boolean isNullable, boolean isPrimaryKey) {
-		return new CharColumn(name, size, isNullable, isPrimaryKey);
+		return ColumnFactory.create(name, size != null ? size.toString() : DEFAULT_SIZE.toString(), DEFAULT_TYPE, isNullable, isPrimaryKey, false);
 	}
 
 	public static Column create(String name, Integer size, boolean isNullable) {

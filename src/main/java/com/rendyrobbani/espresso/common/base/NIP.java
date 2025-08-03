@@ -1,7 +1,7 @@
 package com.rendyrobbani.espresso.common.base;
 
 import com.rendyrobbani.espresso.common.data.gender.Gender;
-import com.rendyrobbani.espresso.common.impl.gender.GenderEnum;
+import com.rendyrobbani.espresso.common.impl.gender.GenderImpl;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -51,7 +51,7 @@ public interface NIP {
 
 	default Gender getGender() {
 		if (this.isNotValid(this.getNIP())) return null;
-		return GenderEnum.fromValue(this.getNIP().substring(GENDER_MAP[0], GENDER_MAP[1]));
+		return GenderImpl.fromValue(this.getNIP().substring(GENDER_MAP[0], GENDER_MAP[1]));
 	}
 
 	default Integer getNumber() {

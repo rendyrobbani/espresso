@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
-public enum ColumnTypeEnum implements ColumnType {
+public enum ColumnTypeImpl implements ColumnType {
 	CHAR("char", String.class),
 	VARCHAR("varchar", String.class),
 	TINYINT("tinyint", Integer.class),

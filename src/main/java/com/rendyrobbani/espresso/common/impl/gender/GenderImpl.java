@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
-public enum GenderEnum implements Gender {
+public enum GenderImpl implements Gender {
 	LAKI_LAKI(1, "Laki-laki"),
 	PEREMPUAN(2, "Perempuan");
 

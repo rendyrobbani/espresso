@@ -1,4 +1,4 @@
-package com.rendyrobbani.espresso.schema.data;
+package com.rendyrobbani.espresso.schema.impl;
 
 import com.rendyrobbani.espresso.schema.base.Column;
 import com.rendyrobbani.espresso.schema.base.Table;
@@ -11,7 +11,7 @@ import java.util.List;
 @Getter
 @RequiredArgsConstructor
 @SuppressWarnings("ClassCanBeRecord")
-public final class DataUniqueKey implements UniqueKey {
+public final class UniqueKeyImpl implements UniqueKey {
 
 	private final String name;
 

@@ -15,6 +15,10 @@ public interface Table {
 
 	List<Column> getColumns();
 
+	default Column findColumn(String name) {
+		return this.getColumns().stream().filter(c -> c.getName().equals(name)).findFirst().orElse(null);
+	}
+
 	default String getDeleteDDL(boolean useIfExists) {
 		return String.join(" ", "drop table" + (useIfExists ? " if exists" : ""), this.getName()
 		);
@@ -26,7 +30,7 @@ public interface Table {
 
 	default String getCreateDDL(boolean useOrReplace, boolean format) {
 		List<String> ddl = new ArrayList<>();
-		ddl.add(String.join(" ", List.of("create", useOrReplace ? "or replace" : "", "table", this.getName(), "(")));
+		ddl.add("create " + (useOrReplace ? "or replace " : "") + "table " + this.getName() + "(");
 		if (format) {
 			int maxName = 0;
 			int maxType = 0;
@@ -45,6 +49,10 @@ public interface Table {
 			ddl.add(") engine = " + ENGINE);
 			ddl.add("  charset = " + CHARSET);
 			ddl.add("  collate = " + COLLATE + ";");
+		} else {
+			ddl.add(String.join(", ", this.getColumns().stream().map(Column::getName).toList()));
+			ddl.add(", primary key(" + this.getColumnId().getName() + ")");
+			ddl.add(") engine = " + ENGINE + " charset = " + CHARSET + " collate = " + COLLATE + ";");
 		}
 		return String.join(format ? "\n" : "", ddl);
 	}

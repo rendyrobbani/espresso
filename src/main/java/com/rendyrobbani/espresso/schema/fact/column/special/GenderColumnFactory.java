@@ -1,15 +1,15 @@
 package com.rendyrobbani.espresso.schema.fact.column.special;
 
 import com.rendyrobbani.espresso.schema.base.Column;
-import com.rendyrobbani.espresso.schema.data.column.TinyIntColumn;
+import com.rendyrobbani.espresso.schema.fact.column.common.TinyIntColumnFactory;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class GenderColumnFactory {
 
-	private GenderColumnFactory() {
-	}
-
 	public static Column create(String name, boolean isNullable, boolean isPrimaryKey) {
-		return new TinyIntColumn(name, isNullable, isPrimaryKey);
+		return TinyIntColumnFactory.create(name, isNullable, isPrimaryKey);
 	}
 
 	public static Column create(String name, boolean isNullable) {

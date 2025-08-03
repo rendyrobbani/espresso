@@ -1,17 +1,17 @@
-package com.rendyrobbani.espresso.schema.fact.column;
+package com.rendyrobbani.espresso.schema.fact.column.common;
 
 import com.rendyrobbani.espresso.schema.base.Column;
-import com.rendyrobbani.espresso.schema.data.column.VarCharColumn;
+import com.rendyrobbani.espresso.schema.fact.column.ColumnFactory;
+import com.rendyrobbani.espresso.schema.impl.ColumnTypeImpl;
 
 public final class VarCharColumnFactory {
 
+	private static final ColumnTypeImpl DEFAULT_TYPE = ColumnTypeImpl.VARCHAR;
+
 	private static final Integer DEFAULT_SIZE = 255;
 
-	private VarCharColumnFactory() {
-	}
-
 	public static Column create(String name, Integer size, boolean isNullable, boolean isPrimaryKey) {
-		return new VarCharColumn(name, size, isNullable, isPrimaryKey);
+		return ColumnFactory.create(name, size != null ? size.toString() : DEFAULT_SIZE.toString(), DEFAULT_TYPE, isNullable, isPrimaryKey, false);
 	}
 
 	public static Column create(String name, Integer size, boolean isNullable) {
