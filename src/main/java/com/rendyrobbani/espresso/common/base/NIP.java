@@ -46,7 +46,7 @@ public interface NIP {
 		if (this.isNotValid(this.getNIP())) return null;
 		var value = this.getNIP().substring(START_DATE_MAP[0], START_DATE_MAP[1]);
 		if (value.endsWith("21")) return null;
-		return LocalDate.parse(value, FORMATTER);
+		return LocalDate.parse(value + "01", FORMATTER);
 	}
 
 	default Gender getGender() {
