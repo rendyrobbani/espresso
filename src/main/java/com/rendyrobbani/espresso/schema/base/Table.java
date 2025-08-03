@@ -57,7 +57,7 @@ public interface Table {
 				if (column.isAutoIncrement()) attr += " auto_increment";
 				ddl.add((" ".repeat(Math.max(1, ddl.size() - 1))) + String.join(" ", name, type, attr) + ",");
 			}
-			ddl.add(", primary key(" + this.getColumnId().getName() + ")");
+			ddl.add("primary key(" + this.getColumnId().getName() + ")");
 			ddl.add(") engine = " + ENGINE + " charset = " + CHARSET + " collate = " + COLLATE + ";");
 		}
 		return String.join(format ? "\n" : "", ddl);
