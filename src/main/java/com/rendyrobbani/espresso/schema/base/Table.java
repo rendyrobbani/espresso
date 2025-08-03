@@ -50,7 +50,13 @@ public interface Table {
 			ddl.add("  charset = " + CHARSET);
 			ddl.add("  collate = " + COLLATE + ";");
 		} else {
-			ddl.add(String.join(", ", this.getColumns().stream().map(Column::getName).toList()));
+			for (var column : this.getColumns()) {
+				var name = column.getName();
+				var type = column.getTypeAndSize();
+				var attr = column.isNullable() ? "null" : "not null";
+				if (column.isAutoIncrement()) attr += " auto_increment";
+				ddl.add(" " + String.join(" ", name, type, attr) + ",");
+			}
 			ddl.add(", primary key(" + this.getColumnId().getName() + ")");
 			ddl.add(") engine = " + ENGINE + " charset = " + CHARSET + " collate = " + COLLATE + ";");
 		}
