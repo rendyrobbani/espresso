@@ -9,7 +9,7 @@ public interface Constraint {
 	String getValue();
 
 	default String getDeleteDDL(boolean useIfExists) {
-		return String.join(" ", "alter table", this.getTable().getName(), "drop constraint" + (useIfExists ? " if exists" : ""), this.getName());
+		return String.join(" ", "alter table", this.getTable().getName(), "drop constraint" + (useIfExists ? " if exists" : ""), this.getName()) + ";";
 	}
 
 	default String getDeleteDDL() {
@@ -17,7 +17,7 @@ public interface Constraint {
 	}
 
 	default String getCreateDDL() {
-		return String.join(" ", "alter table", this.getTable().getName(), "add constraint", this.getName(), this.getValue());
+		return String.join(" ", "alter table", this.getTable().getName(), "add constraint", this.getName(), this.getValue()) + ";";
 	}
 
 }

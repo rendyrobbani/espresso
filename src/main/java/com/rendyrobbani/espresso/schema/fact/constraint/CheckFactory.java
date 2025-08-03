@@ -17,7 +17,7 @@ public final class CheckFactory {
 	public static String createSimpleName(Table table, Integer index) {
 		var tableName = table.getName();
 		if (tableName.length() > 58) tableName = tableName.substring(0, 58);
-		return String.join("_", "ck" + tableName + NumberUtil.lpadZero(index, 2));
+		return String.join("_", "ck", tableName, NumberUtil.lpadZero(index, 2));
 	}
 
 }
