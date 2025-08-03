@@ -12,25 +12,17 @@ import java.util.regex.Pattern;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class FungsiClassificationFactory {
 
-	public static final String FUNGSI_REGEX_VALUE = "([0-9]{2})";
-
-	public static final String FUNGSI_REGEX_GROUP = "^" + FUNGSI_REGEX_VALUE + "$";
-
-	public static final String SUBFUNGSI_REGEX_VALUE = FUNGSI_REGEX_VALUE + "\\." + "([0-9]{2})";
-
-	public static final String SUBFUNGSI_REGEX_GROUP = "^" + SUBFUNGSI_REGEX_VALUE + "$";
-
 	public static FungsiClassification classify(String code) {
 		Matcher matcher;
 
-		matcher = Pattern.compile(SUBFUNGSI_REGEX_GROUP).matcher(code);
+		matcher = Pattern.compile(FungsiClassification.SUBFUNGSI_REGEX_GROUP).matcher(code);
 		if (matcher.matches()) return new FungsiClassificationImpl(
 				matcher.group(1),
 				matcher.group(2),
 				FungsiClassificationLevelImpl.SUBFUNGSI
 		);
 
-		matcher = Pattern.compile(FUNGSI_REGEX_GROUP).matcher(code);
+		matcher = Pattern.compile(FungsiClassification.FUNGSI_REGEX_GROUP).matcher(code);
 		if (matcher.matches()) return new FungsiClassificationImpl(
 				matcher.group(1),
 				null,

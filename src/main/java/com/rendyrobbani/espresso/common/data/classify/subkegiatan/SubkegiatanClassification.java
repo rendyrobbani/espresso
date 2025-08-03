@@ -4,6 +4,17 @@ import com.rendyrobbani.espresso.common.data.classify.fungsi.FungsiClassificatio
 
 public interface SubkegiatanClassification {
 
+	String URUSAN_REGEX_VALUE = "([X0-9])";
+	String URUSAN_REGEX_GROUP = "^" + URUSAN_REGEX_VALUE + "$";
+	String BIDANG_REGEX_VALUE = URUSAN_REGEX_VALUE + "\\." + "([X0-9]{2})";
+	String BIDANG_REGEX_GROUP = "^" + BIDANG_REGEX_VALUE + "$";
+	String PROGRAM_REGEX_VALUE = BIDANG_REGEX_VALUE + "\\." + "([0-9]{2})";
+	String PROGRAM_REGEX_GROUP = "^" + PROGRAM_REGEX_VALUE + "$";
+	String KEGIATAN_REGEX_VALUE = PROGRAM_REGEX_VALUE + "\\." + "([0-9]\\.[0-9]{2})";
+	String KEGIATAN_REGEX_GROUP = "^" + KEGIATAN_REGEX_VALUE + "$";
+	String SUBKEGIATAN_REGEX_VALUE = KEGIATAN_REGEX_VALUE + "\\." + "([0-9]{4})";
+	String SUBKEGIATAN_REGEX_GROUP = "^" + SUBKEGIATAN_REGEX_VALUE + "$";
+
 	String getUrusanPart();
 
 	String getUrusanCode();
