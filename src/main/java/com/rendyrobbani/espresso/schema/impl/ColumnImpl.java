@@ -22,7 +22,7 @@ public final class ColumnImpl implements Column {
 
 	public ColumnImpl(String name, String size, ColumnType type, boolean isNullable, boolean isPrimaryKey, boolean isAutoIncrement) {
 		this.name = name;
-		this.size = size == null ? "" : (size.contains("(") || size.contains(")") ? size : size + "(" + size + ")");
+		this.size = size == null ? "" : (size.contains("(") || size.contains(")") ? size : "(" + size + ")");
 		this.type = type;
 		this.isAutoIncrement = isAutoIncrement && type.getJavaType().equals(Long.class);
 		this.isPrimaryKey = isPrimaryKey || this.isAutoIncrement;
