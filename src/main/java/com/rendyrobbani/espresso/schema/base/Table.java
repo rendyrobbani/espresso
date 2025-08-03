@@ -30,7 +30,7 @@ public interface Table {
 
 	default String getCreateDDL(boolean useOrReplace, boolean format) {
 		List<String> ddl = new ArrayList<>();
-		ddl.add("create " + (useOrReplace ? "or replace " : "") + "table " + this.getName() + "(");
+		ddl.add("create " + (useOrReplace ? "or replace " : "") + "table " + this.getName() + " (");
 		if (format) {
 			int maxName = 0;
 			int maxType = 0;

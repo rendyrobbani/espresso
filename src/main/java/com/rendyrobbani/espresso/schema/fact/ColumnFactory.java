@@ -14,7 +14,11 @@ public final class ColumnFactory {
 	}
 
 	public static Column copyOf(Column column, String name, boolean isNullable, boolean isPrimaryKey) {
-		return new ColumnImpl(name, column.getSize(), column.getType(), isNullable, isPrimaryKey, column.isAutoIncrement());
+		return new ColumnImpl(name, column.getSize(), column.getType(), isNullable, isPrimaryKey, false);
+	}
+
+	public static Column copyOf(Column column, String name, boolean isNullable) {
+		return new ColumnImpl(name, column.getSize(), column.getType(), isNullable, false, false);
 	}
 
 }
