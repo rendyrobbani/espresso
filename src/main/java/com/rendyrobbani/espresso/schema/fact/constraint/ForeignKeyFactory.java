@@ -20,7 +20,7 @@ public final class ForeignKeyFactory {
 	public static String createSimpleName(Table table, Integer index) {
 		var tableName = table.getName();
 		if (tableName.length() > 58) tableName = tableName.substring(0, 58);
-		return String.join("fk_" + tableName + "_" + NumberUtil.lpadZero(index, 2));
+		return String.join("_", "fk" + tableName + NumberUtil.lpadZero(index, 2));
 	}
 
 }
