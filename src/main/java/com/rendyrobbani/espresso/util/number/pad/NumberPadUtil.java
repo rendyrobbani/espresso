@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import java.util.Arrays;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class NumberPadUtil {
+public final class NumberPadUtil {
 
 	public static String lpadZero(Integer number, int length) {
 		if (number == null) return null;

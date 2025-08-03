@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import java.util.Map;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class RomanNumberUtil {
+public final class RomanNumberUtil {
 
 	private static final String[] ROMANS = {
 			"M", "CM", "D", "CD", "C", "XC",

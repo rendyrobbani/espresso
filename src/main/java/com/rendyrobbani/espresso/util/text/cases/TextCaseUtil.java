@@ -10,7 +10,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class TextCaseUtil {
+public final class TextCaseUtil {
 
 	private static final List<String> UPPERCASE = List.of(
 			"ASN",

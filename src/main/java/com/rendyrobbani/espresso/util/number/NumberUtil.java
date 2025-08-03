@@ -6,7 +6,7 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class NumberUtil {
+public final class NumberUtil {
 
 	public static String lpadZero(Integer number, int length) {
 		return NumberPadUtil.lpadZero(number, length);

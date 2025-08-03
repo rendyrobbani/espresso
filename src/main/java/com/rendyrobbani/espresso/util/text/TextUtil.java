@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import java.util.Map;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class TextUtil {
+public final class TextUtil {
 
 	public static String toTitleCase(String text, Map<String, String> replaceBefore, Map<String, String> replaceAfter) {
 		return TextCaseUtil.toTitleCase(text, replaceBefore, replaceAfter);

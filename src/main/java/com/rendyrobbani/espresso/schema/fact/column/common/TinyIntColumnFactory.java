@@ -1,7 +1,7 @@
 package com.rendyrobbani.espresso.schema.fact.column.common;
 
 import com.rendyrobbani.espresso.schema.base.Column;
-import com.rendyrobbani.espresso.schema.fact.column.ColumnFactory;
+import com.rendyrobbani.espresso.schema.fact.ColumnFactory;
 import com.rendyrobbani.espresso.schema.impl.ColumnTypeImpl;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;

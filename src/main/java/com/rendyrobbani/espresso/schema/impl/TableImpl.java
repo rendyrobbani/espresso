@@ -9,10 +9,18 @@ import java.util.List;
 @Getter
 public final class TableImpl implements Table {
 
-	String name;
+	private final String name;
 
-	Column columnId;
+	private final Column columnId;
 
-	List<Column> columns;
+	private final List<Column> columns;
+
+	public TableImpl(String name, List<Column> columns) {
+		this.name = name;
+		this.columns = columns;
+		this.columnId = columns.stream().filter(Column::isPrimaryKey).findFirst().orElse(null);
+
+		if (this.columnId == null) throw new IllegalArgumentException("Table " + name + " must have a primary key");
+	}
 
 }

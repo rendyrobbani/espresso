@@ -1,4 +1,4 @@
-package com.rendyrobbani.espresso.schema.fact.column;
+package com.rendyrobbani.espresso.schema.fact;
 
 import com.rendyrobbani.espresso.schema.base.Column;
 import com.rendyrobbani.espresso.schema.base.ColumnType;
