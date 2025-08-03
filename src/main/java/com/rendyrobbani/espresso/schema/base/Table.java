@@ -55,7 +55,7 @@ public interface Table {
 				var type = column.getTypeAndSize();
 				var attr = column.isNullable() ? "null" : "not null";
 				if (column.isAutoIncrement()) attr += " auto_increment";
-				ddl.add((" ".repeat(ddl.size() - 1)) + String.join(" ", name, type, attr) + ",");
+				ddl.add((" ".repeat(Math.max(1, ddl.size() - 1))) + String.join(" ", name, type, attr) + ",");
 			}
 			ddl.add(", primary key(" + this.getColumnId().getName() + ")");
 			ddl.add(") engine = " + ENGINE + " charset = " + CHARSET + " collate = " + COLLATE + ";");
