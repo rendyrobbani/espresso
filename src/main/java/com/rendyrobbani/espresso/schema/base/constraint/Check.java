@@ -11,9 +11,4 @@ public interface Check extends Constraint {
 		return "check (" + this.getLogic() + ")";
 	}
 
-	@Override
-	default String getCreateDDL() {
-		return String.join(" ", "alter table", this.getTable().getName(), "add constraint", this.getName(), this.getValue());
-	}
-
 }

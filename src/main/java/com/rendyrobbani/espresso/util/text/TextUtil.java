@@ -1,13 +1,13 @@
 package com.rendyrobbani.espresso.util.text;
 
 import com.rendyrobbani.espresso.util.text.cases.TextCaseUtil;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
 import java.util.Map;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class TextUtil {
-
-	private TextUtil() {
-	}
 
 	public static String toTitleCase(String text, Map<String, String> replaceBefore, Map<String, String> replaceAfter) {
 		return TextCaseUtil.toTitleCase(text, replaceBefore, replaceAfter);

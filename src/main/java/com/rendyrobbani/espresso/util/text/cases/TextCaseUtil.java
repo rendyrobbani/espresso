@@ -1,15 +1,16 @@
 package com.rendyrobbani.espresso.util.text.cases;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class TextCaseUtil {
-
-	private TextCaseUtil() {
-	}
 
 	private static final List<String> UPPERCASE = List.of(
 			"ASN",

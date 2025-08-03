@@ -16,6 +16,8 @@ public interface Constraint {
 		return this.getDeleteDDL(false);
 	}
 
-	String getCreateDDL();
+	default String getCreateDDL() {
+		return String.join(" ", "alter table", this.getTable().getName(), "add constraint", this.getName(), this.getValue());
+	}
 
 }
