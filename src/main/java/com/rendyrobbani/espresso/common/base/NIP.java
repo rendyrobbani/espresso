@@ -3,7 +3,7 @@ package com.rendyrobbani.espresso.common.base;
 import com.rendyrobbani.espresso.common.data.gender.Gender;
 import com.rendyrobbani.espresso.common.impl.gender.GenderImpl;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public interface NIP {
@@ -37,16 +37,16 @@ public interface NIP {
 		return this.getNIP();
 	}
 
-	default LocalDateTime getBirthDate() {
+	default LocalDate getBirthDate() {
 		if (this.isNotValid(this.getNIP())) return null;
-		return LocalDateTime.parse(this.getNIP().substring(BIRTH_DATE_MAP[0], BIRTH_DATE_MAP[1]), FORMATTER);
+		return LocalDate.parse(this.getNIP().substring(BIRTH_DATE_MAP[0], BIRTH_DATE_MAP[1]), FORMATTER);
 	}
 
-	default LocalDateTime getStartDate() {
+	default LocalDate getStartDate() {
 		if (this.isNotValid(this.getNIP())) return null;
 		var value = this.getNIP().substring(START_DATE_MAP[0], START_DATE_MAP[1]);
 		if (value.endsWith("21")) return null;
-		return LocalDateTime.parse(value, FORMATTER);
+		return LocalDate.parse(value, FORMATTER);
 	}
 
 	default Gender getGender() {

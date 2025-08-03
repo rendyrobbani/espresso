@@ -1,22 +1,22 @@
-package com.rendyrobbani.espresso.common.data.person;
+package com.rendyrobbani.espresso.common.data.pegawai;
 
 import com.rendyrobbani.espresso.common.base.NIP;
 import com.rendyrobbani.espresso.common.data.gender.Gender;
 import com.rendyrobbani.espresso.common.data.pangkat.PangkatASN;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public interface PegawaiASN extends Pegawai, NIP {
 
 	PangkatASN getPangkat();
 
 	@Override
-	default LocalDateTime getBirthDate() {
+	default LocalDate getBirthDate() {
 		return NIP.super.getBirthDate();
 	}
 
 	@Override
-	default LocalDateTime getStartDate() {
+	default LocalDate getStartDate() {
 		return NIP.super.getStartDate();
 	}
 

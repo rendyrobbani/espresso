@@ -1,4 +1,4 @@
-package com.rendyrobbani.espresso.common.data.person;
+package com.rendyrobbani.espresso.common.data.pegawai;
 
 import com.rendyrobbani.espresso.common.impl.pangkat.PangkatPNS;
 
