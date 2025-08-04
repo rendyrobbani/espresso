@@ -5,8 +5,9 @@ import com.rendyrobbani.espresso.classification.program.ProgramClassification;
 
 public interface KegiatanClassification extends ProgramClassification {
 
-	String KEGIATAN_REGEX_VALUE = "([0-9]\\.[0-9]{2})";
-	String KEGIATAN_REGEX_GROUP = "^" + String.join("\\.", URUSAN_REGEX_VALUE, BIDANG_REGEX_VALUE, PROGRAM_REGEX_VALUE, KEGIATAN_REGEX_VALUE) + "$";
+	String KEGIATAN_REGEX_VALUE = "(?!0)(\\d)\\.(?!00)(\\d{2})";
+	String KEGIATAN_REGEX_MATCH = PROGRAM_REGEX_MATCH + "\\." + KEGIATAN_REGEX_VALUE;
+	String KEGIATAN_REGEX_GROUP = "^" + KEGIATAN_REGEX_MATCH + "$";
 
 	String getKegiatanCode();
 
