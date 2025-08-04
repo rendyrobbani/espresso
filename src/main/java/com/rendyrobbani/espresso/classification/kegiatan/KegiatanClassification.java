@@ -5,7 +5,7 @@ import com.rendyrobbani.espresso.classification.program.ProgramClassification;
 
 public interface KegiatanClassification extends ProgramClassification {
 
-	String KEGIATAN_REGEX_VALUE = "(?!0)(\\d)\\.(?!00)(\\d{2})";
+	String KEGIATAN_REGEX_VALUE = "((?!0)\\d\\.(?!0{2})\\d{2})";
 	String KEGIATAN_REGEX_MATCH = PROGRAM_REGEX_MATCH + "\\." + KEGIATAN_REGEX_VALUE;
 	String KEGIATAN_REGEX_GROUP = "^" + KEGIATAN_REGEX_MATCH + "$";
 

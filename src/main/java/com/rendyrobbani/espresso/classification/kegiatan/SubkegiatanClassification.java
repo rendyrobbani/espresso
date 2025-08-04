@@ -2,8 +2,9 @@ package com.rendyrobbani.espresso.classification.kegiatan;
 
 public interface SubkegiatanClassification extends KegiatanClassification {
 
-	String SUBKEGIATAN_REGEX_VALUE = "^(?!0000$)\\d{4}";
-	String SUBKEGIATAN_REGEX_GROUP = "^" + String.join("\\.", URUSAN_REGEX_VALUE, BIDANG_REGEX_VALUE, PROGRAM_REGEX_VALUE, KEGIATAN_REGEX_VALUE, SUBKEGIATAN_REGEX_VALUE) + "$";
+	String SUBKEGIATAN_REGEX_VALUE = "(?!0{4}$)(\\d{4})";
+	String SUBKEGIATAN_REGEX_MATCH = KEGIATAN_REGEX_MATCH + "\\." + SUBKEGIATAN_REGEX_VALUE;
+	String SUBKEGIATAN_REGEX_GROUP = "^" + SUBKEGIATAN_REGEX_MATCH + "$";
 
 	String getSubkegiatanCode();
 
