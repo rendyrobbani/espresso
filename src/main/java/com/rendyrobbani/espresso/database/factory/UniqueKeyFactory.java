@@ -3,6 +3,7 @@ package com.rendyrobbani.espresso.database.factory;
 import com.rendyrobbani.espresso.database.Column;
 import com.rendyrobbani.espresso.database.Table;
 import com.rendyrobbani.espresso.database.UniqueKey;
+import com.rendyrobbani.espresso.util.number.NumberUtil;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,6 +29,10 @@ public final class UniqueKeyFactory {
 
 	public static UniqueKey create(String name, Table table, List<Column> columns) {
 		return new UniqueKeyImpl(name, table, columns);
+	}
+
+	public static UniqueKey create(Integer index, Table table, List<Column> columns) {
+		return create(String.join("_", "uk", table.getName().substring(0, Math.min(58, table.getName().length())), NumberUtil.lpadZero(index, 2)), table, columns);
 	}
 
 }

@@ -32,4 +32,8 @@ public final class TableFactory {
 		return new TableImpl(name, columns, columnIdName);
 	}
 
+	public static Table create(String name, List<Column> columns) {
+		return create(name, columns, "id");
+	}
+
 }
