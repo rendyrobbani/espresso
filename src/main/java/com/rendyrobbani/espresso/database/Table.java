@@ -6,7 +6,9 @@ import java.util.List;
 public interface Table {
 
 	String ENGINE = "innodb";
+
 	String CHARSET = "utf8mb4";
+
 	String COLLATE = "utf8mb4_unicode_ci";
 
 	String getName();
@@ -20,8 +22,7 @@ public interface Table {
 	}
 
 	default String getDeleteDDL(boolean useIfExists) {
-		return String.join(" ", "drop table" + (useIfExists ? " if exists" : ""), this.getName()
-		);
+		return String.join(" ", "drop table" + (useIfExists ? " if exists" : ""), this.getName()) + ";";
 	}
 
 	default String getDeleteDDL() {
@@ -66,6 +67,7 @@ public interface Table {
 	default String getCreateDDL(boolean useOrReplace) {
 		return this.getCreateDDL(useOrReplace, true);
 	}
+
 	default String getCreateDDL() {
 		return this.getCreateDDL(true, true);
 	}
