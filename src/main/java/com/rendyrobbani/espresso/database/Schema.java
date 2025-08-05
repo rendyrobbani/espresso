@@ -16,7 +16,7 @@ public interface Schema {
 	List<Constraint> getUniqueKeys();
 
 	default String getDeleteDDL() {
-		return String.join(System.lineSeparator().repeat(2), this.getTables().reversed().stream().map(Table::getDeleteDDL).toList());
+		return String.join(System.lineSeparator(), this.getTables().reversed().stream().map(Table::getDeleteDDL).toList());
 	}
 
 	default String getCreateDDL() {
