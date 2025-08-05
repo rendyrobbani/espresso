@@ -63,4 +63,11 @@ public interface Table {
 		return String.join(format ? "\n" : "", ddl);
 	}
 
+	default String getCreateDDL(boolean useOrReplace) {
+		return this.getCreateDDL(useOrReplace, true);
+	}
+	default String getCreateDDL() {
+		return this.getCreateDDL(true, true);
+	}
+
 }

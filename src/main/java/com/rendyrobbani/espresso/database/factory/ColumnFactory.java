@@ -40,7 +40,7 @@ public final class ColumnFactory {
 		size = size == null ? "" : size.trim();
 		if (size.startsWith("(")) size = size.substring(1);
 		if (size.endsWith(")")) size = size.substring(0, size.length() - 1);
-		return new ColumnImpl(name, size, type, isNullable, isPrimaryKey, isAutoIncrement);
+		return new ColumnImpl(name, size.isBlank() ? size : "(" + size + ")", type, isNullable, isPrimaryKey, isAutoIncrement);
 	}
 
 	public static Column copyOf(String name, Column column, boolean isNullable, boolean isPrimaryKey) {
